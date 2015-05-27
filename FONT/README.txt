@@ -11,3 +11,9 @@ Inteligencia Artificial - Planificación
     * Basic
         * dominio.pddl
         * problema.pddl
+        
+        
+
+Para ejecutar el codigo hay que hacer:
+
+* Linux: ./Metric-FF/ff -o Basic/dominio.pddl -f Basic/problema.pddl

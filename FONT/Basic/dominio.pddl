@@ -19,7 +19,7 @@
     
     (:action realiza
         :parameters (?t - tarea ?p - programador)
-        :precondition (and (not(servida ?t)) (= (dtarea ?t) ?x))
+        :precondition (and (not(servida ?t)) (<= (dtarea ?t) (+ (hprog ?p) 1)))
         :effect (servida ?t)
     )
 )

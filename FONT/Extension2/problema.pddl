@@ -1,5 +1,5 @@
 (define (problem problema)
-   (:domain tareas-basic)
+   (:domain tareas-ext2)
    (:objects t1 t2 t3 - tarea
              p1 p2 p3 - programador)
 
@@ -14,8 +14,11 @@
     )
 
     (:goal
-        (forall (?t - tarea) (servida ?t))
+        (forall (?t - tarea) (and (servida ?t) (revisada ?t)))
     )
+
+    (:metric minimize 
+             (+ (tprog p1) (+ (tprog p2) (tprog p3))))
 )
 
 

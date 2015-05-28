@@ -1,16 +1,11 @@
-(define (domain dominio)
-    (:requirements :adl :typing :strips :fluents)
+(define (domain tareas-basic)
+    (:requirements :adl :typing :strips)
     (:types
         tarea programador - object
     )
     
     (:predicates
         (servida ?t - tarea)
-        (servida_por ?t - tarea ?p - programador)
-
-        (por_revisar_1 ?t - tarea)
-        (por_revisar_2 ?t - tarea)
-        (revisada ?t - tarea)
     )
     
     (:functions
@@ -26,24 +21,8 @@
         :parameters (?t - tarea ?p - programador)
         :precondition (and (not (servida ?t))
                            (<= (dtarea ?t) (+ (hprog ?p) 1)))
-        :effect (and (servida_por ?t ?p) 
-                     (servida ?t)
+        :effect (and (servida ?t)
                      (increase (tprog ?p) (dtarea ?t))
-                     (when (= (dtarea ?t) (+ (hprog ?p) 1)) (increase (tprog ?p) 2))
-                     (when (= (cprog ?p) 1) (por_revisar_1 ?t))
-                     (when (= (cprog ?p) 2) (por_revisar_2 ?t)))
-    )
-
-    (:action revisa
-        :parameters (?t - tarea ?p - programador)
-        :precondition (and (not (revisada ?t)) 
-                           (or (por_revisar_1 ?t) 
-                               (por_revisar_2 ?t))
-                           (<= (dtarea ?t) (+ (hprog ?p) 1))
-                           (forall (?p2 - programador) ;servida_por(t,p2) -> neq(p,p2)
-                               (or (not (servida_por ?t ?p2))
-                                   (not (= ?p ?p2)))))
-        :effect (and (when (por_revisar_1 ?t) (and (revisada ?t) (increase (tprog ?p) 1)))
-                     (when (por_revisar_2 ?t) (and (revisada ?t) (increase (tprog ?p) 2))))
+                     (when (= (dtarea ?t) (+ (hprog ?p) 1)) (increase (tprog ?p) 2)))
     )
 )

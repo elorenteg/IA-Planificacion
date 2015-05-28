@@ -14,8 +14,7 @@
     )
 
     (:goal
-        (forall (?t - tarea) (and (servida ?t) (revisada ?t)))
+        (forall (?t - tarea) (and (not (forall (?p - programador) (servida_por ?t ?p))) (revisada ?t)))
     )
 )
-
 

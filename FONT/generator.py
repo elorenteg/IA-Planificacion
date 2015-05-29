@@ -4,10 +4,13 @@
 from random import randint
 import sys
 
+if len(sys.argv)-1 != 2:
+    print "Generator need NTAREAS and NPROGS"
+    sys.exit()
+
 ntareas = sys.argv[1]
 nprogs = sys.argv[2]
 file = open("problema.pddl", "w")
-print randint(2,9)
 
 def create_objects(letra, tipo, max):
     for i in range(1,int(max)+1):
@@ -54,5 +57,4 @@ def create_problem():
     file.close()
     
     
-
 create_problem()

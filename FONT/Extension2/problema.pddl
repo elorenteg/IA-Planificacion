@@ -16,7 +16,7 @@
     )
 
     (:goal
-        (forall (?t - tarea) (and (not (forall (?p - programador) (servida_por ?t ?p))) (revisada ?t)))
+        (forall (?t - tarea) (revisada ?t))
     )
 
     (:metric minimize (ttotal))

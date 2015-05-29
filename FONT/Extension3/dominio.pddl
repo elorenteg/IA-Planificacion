@@ -20,6 +20,8 @@
         (cprog ?p - programador)
         (tprog ?p - programador)
         (nprog ?p - programador)
+        
+        (ttotal)
     )
     
     (:action realiza

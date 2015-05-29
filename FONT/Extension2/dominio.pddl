@@ -5,6 +5,7 @@
     )
     
     (:predicates
+        (servida ?t - tarea)
         (servida_por ?t - tarea ?p - programador)
 
         (por_revisar_1 ?t - tarea)
@@ -19,6 +20,8 @@
         (hprog ?p - programador)
         (cprog ?p - programador)
         (tprog ?p - programador)
+        
+        (ttotal)
     )
     
     (:action realiza
@@ -27,7 +30,10 @@
                            (<= (dtarea ?t) (+ (hprog ?p) 1)))
         :effect (and (servida_por ?t ?p) (servida ?t)
                      (increase (tprog ?p) (dtarea ?t))
-                     (when (= (dtarea ?t) (+ (hprog ?p) 1)) (increase (tprog ?p) 2))
+                     (increase (ttotal) (dtarea ?t))
+                     (when (= (dtarea ?t) (+ (hprog ?p) 1))
+                        (and (increase (tprog ?p) 2)
+                             (increase (ttotal) 2)))
                      (when (= (cprog ?p) 1) (por_revisar_1 ?t))
                      (when (= (cprog ?p) 2) (por_revisar_2 ?t)))
     )
@@ -39,7 +45,9 @@
                                (por_revisar_2 ?t))
                            (<= (dtarea ?t) (+ (hprog ?p) 1))
                            (not (servida_por ?t ?p)))
-        :effect (and (when (por_revisar_1 ?t) (and (revisada ?t) (increase (tprog ?p) 1)))
-                     (when (por_revisar_2 ?t) (and (revisada ?t) (increase (tprog ?p) 2))))
+        :effect (and (when (por_revisar_1 ?t)
+                        (and (revisada ?t) (increase (tprog ?p) 1) (increase (ttotal) 1)))
+                     (when (por_revisar_2 ?t)
+                        (and (revisada ?t) (increase (tprog ?p) 2) (increase (ttotal) 2))))
     )
 )

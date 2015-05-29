@@ -45,6 +45,11 @@ def init_programador(max):
             file.write("(= (nprog " + pi + ") " + str(0) + ") ")
         file.write("\n")
         
+    if version in ['2','3','4']:
+        indent(2)
+        file.write("(= (ttotal) " + str(0) + ") ")
+        file.write("\n")
+        
 def create_goal():
     indent(2)
     if version == 'b':
@@ -54,9 +59,9 @@ def create_goal():
         
 def create_minim():
     indent(1)
-    file.write("(:minimize\n")
+    file.write("(:metric minimize\n")
     indent(2)
-    """ TODO: minimize"""
+    file.write("(ttotal)")
     file.write("\n")
     indent(1)
     file.write(")\n")

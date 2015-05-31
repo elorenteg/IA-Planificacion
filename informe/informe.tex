@@ -1,0 +1,105 @@
+\documentclass[a4paper,12pt,spanish]{article}
+
+% Fonts.
+\usepackage{mathpazo}
+\usepackage[scaled=1.03,varqu]{zi4}
+%\usepackage[scaled=0.92]{luximono}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+
+% Format.
+\usepackage{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+\usepackage{setspace}
+\onehalfspacing
+
+% Referències.
+\usepackage[unicode=true,
+        bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+        breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=false]
+    {hyperref}
+\hypersetup{pdfauthor={Gispert Sánchez, Francesc; Lorente García, Ester; Martín Alaminos, David}}
+
+% Gràfics.
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{standalone}
+\usepackage{afterpage}
+\usepackage{pdflscape}
+
+% Codi.
+\usepackage{listings}
+\lstset{
+    inputencoding=utf8,
+    extendedchars=true,
+    aboveskip=20pt,
+    belowskip=10pt,
+    captionpos=b,
+    frame=single,
+    basicstyle=\small\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=5pt,
+    columns=full_flexible,
+    showspaces=false,
+    showtabs=false,
+    breaklines=true,
+    literate=%
+        {á}{{\'a}}1%
+        {é}{{\'e}}1%
+        {í}{{\'i}}1%
+        {ó}{{\'o}}1%
+        {ú}{{\'u}}1%
+        {Á}{{\'A}}1%
+        {É}{{\'E}}1%
+        {Í}{{\'I}}1%
+        {Ó}{{\'O}}1%
+        {Ú}{{\'U}}1%
+        {¿}{{?`}}1%
+        {¡}{{!`}}1%
+}
+\renewcommand{\lstlistingname}{Texto}
+\newcommand{\lstlistingautorefname}{\lstlistingname}
+
+
+\begin{document}
+
+\title{
+    Inteligencia artificial\\ 
+    Sistemas basados en el conocimiento
+}
+
+\author{
+    Gispert Sánchez, Francesc-Xavier\\
+    Lorente García, Ester\\
+    Martín Alaminos, David
+}
+
+\maketitle
+
+\noindent \rule[0.5ex]{1\columnwidth}{1pt}
+
+\tableofcontents
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{introduccion}
+
+\input{modelo}
+
+\input{implementacion}
+
+\input{resultados}
+
+\input{conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+
+

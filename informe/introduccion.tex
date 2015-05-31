@@ -1,0 +1,71 @@
+
+\section{Introducción y descripción del problema} \label{sec:intro}
+
+Algunos problemas de optimización resultan computacionalmente intratables con 
+los algoritmos exactos que se conocen a causa de su complejidad algorítmica, 
+debida a la magnitud de la estructura combinatoria subyacente. Por ello, la 
+inteligencia artificial utiliza técnicas que podan el espacio de búsqueda y 
+lo inspeccionan guiadas por heurísticas para poder ofrecer soluciones 
+aproximadas de forma sencilla. 
+
+Una familia de problemas cuya resolución se ha simplificado mucho con 
+herramientas genéricas que automatizan este proceso de búsqueda es la de los 
+problemas de planificación. El objetivo de estos problemas es construir un 
+plan o secuencia de acciones que permitan llegar a un cierto objetivo 
+partiendo de un estado inicial. Se trata, pues, de problemas de síntesis, en 
+los que hay que construir una solución basándose en el conocimiento del 
+dominio (en este caso, en el estado del entorno, las acciones disponibles en 
+cada momento y el objetivo al que se desea llegar).
+
+La comunidad de inteligencia artificial ha desarrollado, a lo largo de los 
+años, herramientas capaces de resolver problemas de planificación 
+independientemente del dominio. Así, el usuario de estas herramientas solo 
+tiene que modelizar su dominio y su problema mediante un lenguaje formal de 
+representación y el sistema se encarga de la resolución automática del 
+problema. 
+
+En este trabajo, lo ejemplificamos mediante la resolución de un problema 
+simple de asignación que se puede modelizar como un problema de planificación 
+para guiar adecuadamente la construcción de la asignación. El problema 
+consiste en la distribución de \(T\) tareas de programación entre \(P\) 
+programadores. Cada tarea tiene asociada un nivel de dificultad (\(1\), \(2\) 
+o \(3\), por orden creciente) y un tiempo estimado de desarrollo (un número 
+de horas); por su lado, cada programador tiene asociada un nivel de habilidad 
+(\(1\), \(2\) o \(3\), por orden creciente) y una categoría según su calidad 
+(\(1\) o \(2\), por orden decreciente). Un programador puede resolver una 
+tarea del mismo nivel de dificultad que su nivel de habilidad en el tiempo 
+establecido o bien una tarea con un nivel de dificultad inmediatamente 
+superior a su habilidad añadiendo dos horas adicionales. Tras la resolución 
+de una tarea, se crea una tarea de revisión de una hora si el programador era 
+de primera calidad o de dos horas en caso contrario, independientemente de si 
+el programador que la lleva a cabo tiene una habilidad inferior; esta tarea de 
+revisión tiene la misma dificultad que la inicial y tiene que ser llevada a 
+cabo por otro programador distinto.
+
+En esta práctica hemos considerado la versión básica del problema y las cuatro 
+extensiones propuestas, de forma incremental. El problema básico consiste en 
+la resolución directa del problema de asignación sin tener en cuenta las 
+tareas de revisión. En la primera extensión, se añaden estas tareas de 
+revisión al problema. La segunda extensión pretende, además, minimizar el 
+tiempo total de resolución de las tareas. En la tercera extensión se limita 
+el número de tareas por programador a \(2\) para facilitar el trabajo en 
+paralelo. Finalmente, en la cuarta extensión, se pretende minimizar el 
+producto entre el número de personas con tareas asignadas y el tiempo total de 
+resolución.
+
+Se desarrolla, pues, un modelo expresado en \texttt{PDDL} para cada uno de los 
+problemas considerados, analizando los elementos necesarios y las diferencias 
+entre ellos, y se resuelven utilizando la herramienta de planificación 
+\texttt{Fast Forward}. El desarrollo de la práctica, así como la estructura 
+de este informe, está influenciado por la metodología de la ingeniería del 
+conocimiento vista en la práctica anterior, con un desarrollo incremental y 
+basada en distintos prototipos (aunque en este caso, debido a la simplicidad 
+del problema, las fases de identificación del problema, conceptualización y 
+formalización prácticamente se han unido en una sola).
+
+En el resto de este documento, explicamos los pasos del desarrollo de nuestra 
+solución y mostramos y analizamos los resultados obtenidos.
+
+\clearpage
+
+

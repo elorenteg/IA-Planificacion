@@ -1,7 +1,36 @@
 
 \section{Implementación} \label{sec:implem}
 
-%%% TODO
+En la \autoref{sec:modelo}, se ha descrito de forma detallada el modelo 
+desarrollado para cada una de las variaciones del problema tratadas; estos 
+modelos se encuentran implementados (expresados en el lenguaje \texttt{PDDL}) 
+en el código adjunto a este documento. En esta sección, pues, se comenta el 
+proceso seguido para su implementación. 
+
+Para implementar el modelo final, se ha optado por un esquema de diseño 
+incremental basado en prototipos, siguiendo el guión propuesto en el enunciado 
+de la práctica. Es decir, se empezó con una solución para el problema básico 
+propuesto, que sirvió esencialmente como toma de contacto con el lenguaje 
+\texttt{PDDL} y la herramienta \texttt{Fast Forward}, y esta se fue ampliando 
+poco a poco y de forma ordenada para tener en cuenta cada una de las 
+extensiones trabajadas. Por lo tanto, a lo largo del desarrollo de la práctica 
+se han ido construyendo prototipos, todos ellos perfectamente funcionales, 
+cada vez teniendo en cuenta más elementos del problema hasta llegar a la 
+última extensión. 
+
+Sin embargo, la implementación del prototipo correspondiente a cada extensión 
+partiendo de la anterior se ha llevado a cabo prácticamente en un solo paso 
+(o sea, sin desarrollar diversos prototipos intermedios entre una extensión y 
+la siguiente), puesto que la estructura en extensiones propuesta en el 
+enunciado era suficientemente sencilla (es decir, los añadidos de una 
+extensión respecto a la previa eran tan pocos que no justificaba una 
+metodología más compleja).
+
+Aparte de los modelos en \texttt{PDDL}, también se ha desarrollado un pequeño 
+\textit{script} en \texttt{Python} (se encuentra también en el código adjunto 
+a este documento) para la generación aleatoria de instancias de entrada de 
+nuestro problema y se ha utilizado para los experimentos descritos en la 
+\autoref{sec:res-extra}. 
 
 
 \clearpage

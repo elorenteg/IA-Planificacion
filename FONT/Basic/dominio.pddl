@@ -22,7 +22,7 @@
         :precondition (and (not (servida ?t))
                            (<= (dtarea ?t) (+ (hprog ?p) 1)))
         :effect (and (servida ?t)
-                     (increase (tprog ?p) (dtarea ?t))
+                     (increase (tprog ?p) (ttarea ?t))
                      (when (= (dtarea ?t) (+ (hprog ?p) 1)) (increase (tprog ?p) 2)))
     )
 )

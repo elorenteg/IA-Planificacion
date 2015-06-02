@@ -27,7 +27,7 @@
         :precondition (and (not (servida ?t))
                            (<= (dtarea ?t) (+ (hprog ?p) 1)))
         :effect (and (servida_por ?t ?p) (servida ?t)
-                     (increase (tprog ?p) (dtarea ?t))
+                     (increase (tprog ?p) (ttarea ?t))
                      (when (= (dtarea ?t) (+ (hprog ?p) 1)) (increase (tprog ?p) 2))
                      (when (= (cprog ?p) 1) (por_revisar_1 ?t))
                      (when (= (cprog ?p) 2) (por_revisar_2 ?t)))

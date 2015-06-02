@@ -8,17 +8,18 @@
         (= (dtarea t2) 1) (= (ttarea t2) 1)
         (= (dtarea t3) 1) (= (ttarea t3) 1)
         
-        (= (hprog p1) 1) (= (cprog p1) 1) (= (tprog p1) 0) (= (nprog p1) 0)
-        (= (hprog p2) 1) (= (cprog p2) 1) (= (tprog p2) 0) (= (nprog p2) 0)
-        (= (hprog p3) 1) (= (cprog p3) 1) (= (tprog p3) 0) (= (nprog p3) 0)
+        (= (hprog p1) 1) (= (cprog p1) 1) (= (nprog p1) 0)
+        (= (hprog p2) 1) (= (cprog p2) 1) (= (nprog p2) 0)
+        (= (hprog p3) 1) (= (cprog p3) 1) (= (nprog p3) 0)
+
+        (= (ttotal) 0)
     )
 
     (:goal
         (forall (?t - tarea) (revisada ?t))
     )
 
-    (:metric minimize 
-             (+ (tprog p1) (+ (tprog p2) (tprog p3))))
+    (:metric minimize (ttotal))
 )
 
 

@@ -3,6 +3,7 @@
 
 from random import randint
 import sys
+import re
 
 
 if len(sys.argv)-1 != 3:
@@ -39,50 +40,47 @@ def create_objects(letra, tipo, max):
     
     for i in range(1,int(max)+1):
         if letra == 'p':
-            rand = randint(1,MAX_NOMBRES)
+            rand = randint(0,MAX_NOMBRES-1)
             nomb = lines_nombres[rand]
             nomb = " ".join(nomb.split())
             nomb = nomb.replace(" ","_")
-            print str(rand) + " --- " + nomb
+            nomb = re.sub("[^a-zA-Z|^0-9|^_]+", "", nomb)
             file.write(nomb + " ")
             LIST_PROGS.append(nomb)
         else:
-            randV = randint(1,MAX_VERBOS)
-            randO = randint(1,MAX_OBJETOS)
+            randV = randint(0,MAX_VERBOS-1)
+            randO = randint(0,MAX_OBJETOS-1)
             verbo = lines_verbos[randV]
             objeto = lines_objetos[randO]
             verbo = " ".join(verbo.split())
             objeto = " ".join(objeto.split())
             tarea = verbo + " " + objeto
             tarea = tarea.replace(" ","_")
-            print str(randV) +"+"+ str(randO) + " --- " + tarea
+            tarea = re.sub("[^a-zA-Z|^0-9|^_]+", "", tarea)
             file.write(tarea + " ")
             LIST_TAREA.append(tarea)
         
     file.write("- " + tipo + "\n")
     
     if (letra == 'p'):
-        print LIST_PROGS
+        print "PROGRAMADORES: " + str(LIST_PROGS)
     else:
-        print LIST_TAREA
+        print "TAREAS: " + str(LIST_TAREA)
     
 def init_tarea(max):
-    for i in range(1,int(max)+1):
-        ti = "t" + str(i)
+    for i in range(0,int(max)):
         indent(2)
-        tarea = LIST_TAREA[i-1]
+        tarea = LIST_TAREA[i]
         file.write("(= (dtarea " + tarea + ") " + str(randint(1,3)) + ") ")
         file.write("(= (ttarea " + tarea + ") " + str(randint(1,10)) + ") ")
         file.write("\n")
 
 def init_programador(max):
-    for i in range(1,int(max)+1):
-        pi = "p" + str(i)
+    for i in range(0,int(max)):
         indent(2)
-        prog = LIST_PROGS[i-1]
+        prog = LIST_PROGS[i]
         file.write("(= (hprog " + prog + ") " + str(randint(1,3)) + ") ")
         file.write("(= (cprog " + prog + ") " + str(randint(1,2)) + ") ")
-        """file.write("(= (tprog " + pi + ") " + str(0) + ") ")"""
         if version in ['3','4']:
             file.write("(= (nprog " + prog + ") " + str(0) + ") ")
         file.write("\n")
@@ -118,9 +116,7 @@ def create_minim():
     file.write(")\n")
 
 
-def create_problem():
-    print("Creating new problem file")
-    
+def create_problem():    
     file.write("(define (problem problema)\n")
     indent(1)
     file.write("(:domain tareas-")

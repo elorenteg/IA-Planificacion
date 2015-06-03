@@ -44,7 +44,7 @@ def create_objects(letra, tipo, max):
             nomb = lines_nombres[rand]
             nomb = " ".join(nomb.split())
             nomb = nomb.replace(" ","_")
-            nomb = re.sub("[^a-zA-Z|^0-9|^_]+", "", nomb)
+            nomb = re.sub("[^a-zA-Z|^0-9|^_]+", "", nomb) #nomb solo puede tener caracteres a-zA-Z, 0-9, _
             file.write(nomb + " ")
             LIST_PROGS.append(nomb)
         else:
@@ -56,7 +56,7 @@ def create_objects(letra, tipo, max):
             objeto = " ".join(objeto.split())
             tarea = verbo + " " + objeto
             tarea = tarea.replace(" ","_")
-            tarea = re.sub("[^a-zA-Z|^0-9|^_]+", "", tarea)
+            tarea = re.sub("[^a-zA-Z|^0-9|^_]+", "", tarea) #tarea solo puede tener caracteres a-zA-Z, 0-9, _
             file.write(tarea + " ")
             LIST_TAREA.append(tarea)
         
@@ -81,6 +81,7 @@ def init_programador(max):
         prog = LIST_PROGS[i]
         file.write("(= (hprog " + prog + ") " + str(randint(1,3)) + ") ")
         file.write("(= (cprog " + prog + ") " + str(randint(1,2)) + ") ")
+        file.write("(= (tprog " + prog + ") " + str(0) + ") ")
         if version in ['3','4']:
             file.write("(= (nprog " + prog + ") " + str(0) + ") ")
         file.write("\n")

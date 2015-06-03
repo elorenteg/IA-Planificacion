@@ -40,7 +40,7 @@ def init_programador(max):
         indent(2)
         file.write("(= (hprog " + pi + ") " + str(randint(1,3)) + ") ")
         file.write("(= (cprog " + pi + ") " + str(randint(1,2)) + ") ")
-        file.write("(= (tprog " + pi + ") " + str(0) + ") ")
+        """file.write("(= (tprog " + pi + ") " + str(0) + ") ")"""
         if version in ['3','4']:
             file.write("(= (nprog " + pi + ") " + str(0) + ") ")
         file.write("\n")
@@ -49,6 +49,12 @@ def init_programador(max):
         indent(2)
         file.write("(= (ttotal) " + str(0) + ") ")
         file.write("\n")
+        
+    if version in ['4']:
+        indent(2)
+        file.write("(= (ntrabajadores) " + str(0) + ") ")
+        file.write("\n")
+        
         
 def create_goal():
     indent(2)
@@ -61,7 +67,10 @@ def create_minim():
     indent(1)
     file.write("(:metric minimize\n")
     indent(2)
-    file.write("(ttotal)")
+    if version == '4':
+        file.write("(* (ttotal) (ntrabajadores))")
+    else:
+        file.write("(ttotal)")
     file.write("\n")
     indent(1)
     file.write(")\n")

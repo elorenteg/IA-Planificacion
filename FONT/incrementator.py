@@ -4,6 +4,7 @@
 from random import randint
 import os
 import commands
+import time
 
 
 version = raw_input("Version del problema [b,1,2,3,4]: ")
@@ -22,9 +23,11 @@ while posible:
     print "Num Progra: " + str(initProgs)
     os.system("python generator.py " + version + " " + str(initTarea) + " " + str(initProgs))
     
-    
+    t1 = time.time()
     output = commands.getoutput("./Metric-FF/ff -o " + paquete+"/dominio.pddl -f problema.pddl")
-    print output
+    t2 = time.time()
+    #print output
+    print "Tiempo: " + str("%.3f" % (t2-t1)) + " s"
     
     initTarea += 1
     initProgs += 2

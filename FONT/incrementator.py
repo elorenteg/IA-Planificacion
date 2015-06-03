@@ -10,6 +10,10 @@ version = raw_input("Version del problema [b,1,2,3,4]: ")
 initTarea = int(raw_input("Numero de tareas: "))
 initProgs = int(raw_input("Numero de programadores: "))
 
+paquete = "Basic"
+if version in ['1','2','3','4']:
+    paquete = "Extension" + version
+
 posible = True
 i = 1
 while posible:
@@ -18,7 +22,8 @@ while posible:
     print "Num Progra: " + str(initProgs)
     os.system("python generator.py " + version + " " + str(initTarea) + " " + str(initProgs))
     
-    output = commands.getoutput("./Metric-FF/ff -o Basic/dominio.pddl -f problema.pddl")
+    
+    output = commands.getoutput("./Metric-FF/ff -o " + paquete+"/dominio.pddl -f problema.pddl")
     print output
     
     initTarea += 1

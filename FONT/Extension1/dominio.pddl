@@ -19,7 +19,6 @@
         
         (hprog ?p - programador)
         (cprog ?p - programador)
-        (tprog ?p - programador)
     )
     
     (:action realiza
@@ -27,8 +26,6 @@
         :precondition (and (not (servida ?t))
                            (<= (dtarea ?t) (+ (hprog ?p) 1)))
         :effect (and (servida_por ?t ?p) (servida ?t)
-                     (increase (tprog ?p) (ttarea ?t))
-                     (when (= (dtarea ?t) (+ (hprog ?p) 1)) (increase (tprog ?p) 2))
                      (when (= (cprog ?p) 1) (por_revisar_1 ?t))
                      (when (= (cprog ?p) 2) (por_revisar_2 ?t)))
     )
@@ -40,7 +37,6 @@
                                (por_revisar_2 ?t))
                            (<= (dtarea ?t) (+ (hprog ?p) 1))
                            (not (servida_por ?t ?p)))
-        :effect (and (when (por_revisar_1 ?t) (and (revisada ?t) (increase (tprog ?p) 1)))
-                     (when (por_revisar_2 ?t) (and (revisada ?t) (increase (tprog ?p) 2))))
+        :effect (revisada ?t)
     )
 )

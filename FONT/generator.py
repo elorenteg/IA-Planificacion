@@ -81,7 +81,6 @@ def init_programador(max):
         prog = LIST_PROGS[i]
         file.write("(= (hprog " + prog + ") " + str(randint(1,3)) + ") ")
         file.write("(= (cprog " + prog + ") " + str(randint(1,2)) + ") ")
-        file.write("(= (tprog " + prog + ") " + str(0) + ") ")
         if version in ['3','4']:
             file.write("(= (nprog " + prog + ") " + str(0) + ") ")
         file.write("\n")

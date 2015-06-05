@@ -1,0 +1,45 @@
+
+\subsection{Instancias del problema} \label{sec:mod-inst}
+
+Hasta el momento se ha explicado como se modeliza el dominio de cada versión 
+del problema. Del mismo modo, también hay que formalizar utilizando 
+\texttt{PDDL} las entradas de los problemas a resolver.
+
+Como se ha explicado, los únicos objetos del problema son las tareas y los 
+programadores (cada uno con su propio tipo para reducir el número de posibles 
+unificaciones). La entrada de un problema consiste, pues, en una enumeración 
+de las tareas y de los programadores considerados seguida de una descripción 
+de sus características. Es decir, se inicializan las funciones que 
+corresponden a la dificultad y el tiempo necesario para cada tarea y a la 
+habilidad y la calidad de cada programador. Esta parte de la descripción es 
+común para todas las versiones del problema expuestas.
+
+Además, algunas de las extensiones requieren de la inicialización de otras 
+funciones que se utilizan para mantener guardados valores necesarios para 
+construir la solución de forma adecuada. En particular, a partir de la segunda 
+extensión hay que inicializar a cero el número de horas de realización de las 
+tareas asignadas, a partir de la tercera extensión hay que inicializar el 
+número de tareas asignadas a cada programador a cero y en la cuarta extensión 
+hay que inicializar el número de programadores que trabajan en las tareas 
+asignadas a cero, puesto que en la solución inicial no hay ninguna asignación. 
+
+El estado inicial de la planificación, pues, es una asignación vacía. Esta 
+asignación se va completando a medida que el planificador asigna tareas (tanto 
+las tareas iniciales como las de revisión) a los programadores. Por lo tanto, 
+una solución final se consigue cuando todas las tareas han sido asignadas a 
+algún programador. Esto se modeliza en la versión básica del problema (en la 
+cual no se consideran las tareas de revisión) pidiendo que todas las tareas 
+estén servidas y en todas las extensiones posteriores pidiendo que todas las 
+tareas estén revisadas (puesto que, por la definición de las acciones, una 
+tarea solo puede estar revisada cuando también está servida). 
+
+Finalmente, en algunas de las extensiones se pide que el planificador intente 
+minimizar algunos criterios. Concretamente, en la segunda y en la tercera 
+extensiones se intenta minimizar \texttt{(ttotal)} (que representa la suma de 
+los tiempos de realización de todas las tareas, incluyendo las de revisión), 
+mientras que en la cuarta extensión se intenta minimizar la suma de 
+\texttt{(ttotal)} y \texttt{(ntrabajadores)} (que representa el número de 
+programadores usados para realizar todas las tareas). 
+
+
+

@@ -1,6 +1,44 @@
 
 \subsection{Segunda extensión} \label{sec:mod-ext2}
 
-%%% TODO
+En esta extensión, se empieza a tener en cuenta el tiempo de realización de 
+las tareas. Esto significa que hay que modificar las acciones adecuadamente 
+para poder contabilizarlo y tener en cuenta las diferentes circunstancias que 
+incrementan el tiempo de realización o de revisión (explicadas en la 
+\autoref{sec:intro}).
+
+Añadimos, pues, una nueva función llamada \texttt{(ttotal)} utilizada para 
+almacenar el tiempo total de realización de tareas (incluyendo las de 
+revisión) de la asignación parcial calculada hasta el momento. Esta función 
+se utiliza como valor a minimizar en esta extensión. Además, su valor deberá 
+ser actualizado con cada acción de asignación de tareas.
+
+Por otro lado, en esta extensión no basta con saber que hay que realizar una 
+tarea de revisión, sino que se necesita saber también cuánto tiempo requiere 
+esta. El tiempo de revisión de una tarea depende de la calidad del programador 
+que la haya desempeñado previamente. Por lo tanto, una posibilidad sería 
+ampliar la acción \texttt{revisa} para que usase como parámetro el programador 
+al cual se había asignado la tarea y calcular el tiempo de revisión según la 
+calidad de este. Sin embargo, en este caso se ha optado por la introducción de 
+dos nuevos predicados, \texttt{(por\_revisar\_1 ?t - tarea)} y 
+\texttt{(por\_revisar\_2 ?t - tarea)} que indican que una tarea \texttt{?t} 
+comporta una tarea de revisión de una hora o de dos, respectivamente. 
+
+En particular, el efecto de la acción \texttt{realiza} debe adaptarse a estos 
+cambios. Concretamente, cuando se ejecuta \texttt{realiza} con una tarea 
+\texttt{?t} y un programador \texttt{?p}, se incrementa \texttt{ttotal} con 
+el tiempo de realización de \texttt{?t} (incluyendo las dos horas adicionales 
+por la habilidad de \texttt{?p} si cabe) y se activa uno de los dos predicados 
+\texttt{por\_revisar\_1} o \texttt{por\_revisar\_2} según la calidad de 
+\texttt{?p}.
+
+La acción \texttt{revisa} también se adapta del mismo modo. Por un lado, 
+cuando se unifica esta acción con una tarea \texttt{?t} y un programador 
+\texttt{?p}, en la precondición se comprueba que uno de los dos predicados 
+\texttt{(por\_revisar\_1 ?t)} o bien \texttt{(por\_revisar\_2 ?t)} se cumpla 
+en vez de comprobar \texttt{(servida ?t)}; por otro lado, en el efecto se 
+añade un incremento de \texttt{ttotal} en una o dos horas según el caso.
+
+
 
 

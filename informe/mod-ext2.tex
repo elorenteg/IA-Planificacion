@@ -22,7 +22,10 @@ al cual se había asignado la tarea y calcular el tiempo de revisión según la
 calidad de este. Sin embargo, en este caso se ha optado por la introducción de 
 dos nuevos predicados, \texttt{(por\_revisar\_1 ?t - tarea)} y 
 \texttt{(por\_revisar\_2 ?t - tarea)} que indican que una tarea \texttt{?t} 
-comporta una tarea de revisión de una hora o de dos, respectivamente. 
+comporta una tarea de revisión de una hora o de dos, respectivamente. Se 
+cumple uno de estos dos predicados al mismo tiempo que se cumpliría un 
+predicado  \texttt{servida}; por lo tanto, este último pasa a ser redundante 
+y se elimina del modelo.
 
 En particular, el efecto de la acción \texttt{realiza} debe adaptarse a estos 
 cambios. Concretamente, cuando se ejecuta \texttt{realiza} con una tarea 

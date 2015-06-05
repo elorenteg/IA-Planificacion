@@ -1,6 +1,41 @@
 
 \subsection{Primera extensión} \label{sec:mod-ext1}
 
-%%% TODO
+Esta primera extensión se construye a partir del problema básico añadiendo 
+las tareas de revisión. Estas tareas de revisión, pues, provocan diversos 
+cambios en el modelo que comentamos a continuación.
+
+Para empezar, en esta versión no es suficiente saber que las tareas están 
+asignadas a algún programador: hace falta, además, considerar si su revisión 
+también se ha asignado. Además, la asignación de la tarea de revisión tiene 
+algunas peculiaridades distintas (por ejemplo, hay que tener en cuenta que el 
+programador que revisa una tarea no puede ser el mismo que la ha realizado).
+
+En este modelo, no creamos un nuevo objeto de tipo \texttt{tarea} para 
+representar la tarea de revisión. En vez de eso, consideramos un mayor número 
+de estados en los que se puede encontrar una tarea con respecto al problema: 
+una tarea puede estar no asignada para realizar, asignada para su realización 
+pero no para su revisión o bien asignada tanto para su realización como para 
+su revisión. Esto se modeliza añadiendo un nuevo predicado 
+\texttt{(revisada ?t - tarea)} al modelo anterior. Se crea asimismo un 
+predicado \texttt{(servida\_por ?t - tarea ?p - programador)} que indica el 
+programador al cual se ha asignado la tarea (sin embargo, este nuevo predicado 
+no sustituye a \texttt{(servida ?t - tarea)} por motivos de eficiencia, puesto 
+que este último tiene un factor de ramificación menor); esto se utilizará para 
+garantizar que la tarea de revisión la lleva a cabo un programador distinto.
+
+De este modo, la acción \texttt{realiza} se modifica para incluir como efecto 
+el uso de este nuevo predicado \texttt{servida\_por} para marcar qué 
+programador realizará la tarea. Para esta extensión, además, es necesario 
+crear una nueva acción para las tareas de revisión (puesto que ampliar la 
+acción \texttt{realiza} para satisfacer también estas tareas de revisión la 
+haría excesivamente compleja): se trata de la acción \texttt{revisa}. Esta 
+admite como parámetros \texttt{(?t - tarea ?p - programador)} y se ejecuta 
+cuando una tarea \texttt{?t} está servida pero no revisada y con un 
+programador \texttt{?p} distinto del programador que realiza la tarea y que 
+tiene suficiente habilidad para revisarla. En este caso, el efecto de la 
+acción es marcar la tarea \texttt{?t} como revisada para indicar que la tarea 
+de revisión asociada ya está asignada.
+
 
 

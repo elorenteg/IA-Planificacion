@@ -1,6 +1,51 @@
 
 \subsection{Problema básico} \label{sec:mod-basico}
 
-%%% TODO
+Como se ha explicado en la \autoref{sec:intro}, los elementos principales del 
+problema tratado son los programadores disponibles (con las características 
+que definen sus habilidades) y las tareas que se deben asignar a estos 
+(también con las propiedades que caracterizan su dificultad). Por este 
+motivo, en nuestro modelo definimos dos nuevos tipos: \texttt{tarea} y 
+\texttt{programador} (ambos subtipos de \texttt{object}). Esto permite al 
+sistema planificador ser más eficiente, pues se restringen las posibilidades 
+de unificación y se reduce así el factor de ramificación.
+
+Las propiedades que caracterizan las tareas y los programadores en este 
+problema son números enteros con los que es necesario realizar operaciones 
+aritméticas o comparaciones (por ejemplo, para determinar si un programador 
+dispone de la habilidad suficiente para realizar una tarea). Se ha decidido, 
+por lo tanto, crear funciones para definirlas. En particular, se utilizan las 
+funciones \texttt{(dtarea ?t - tarea)} y \texttt{(ttarea ?t - tarea)} para 
+obtener el nivel de dificultad y el tiempo mínimo necesario para la 
+realización, respectivamente, de una tarea \texttt{?t} y las funciones 
+\texttt{(hprog ?p - programador)} y \texttt{(cprog ?p - programador)} para 
+obtener el nivel de habilidad y la calidad, respectivamente, de un programador 
+\texttt{?p}. 
+
+Para esta versión básica, no se consideran las tareas de revisión inducidas 
+por las tareas iniciales del problema. Así, pues, las tareas se encuentran en 
+exactamente uno de dos estados posibles en el problema: no asignadas o 
+asignadas. Para modelizar estas posibilidades, se utiliza un predicado 
+\texttt{(servida ?t - tarea)} que deberá cumplirse cuando la tarea \texttt{?t} 
+esté asignada. Este predicado es necesario para saber cuándo se ha llegado a 
+una solución (es decir, todas las tareas están asignadas) y cuándo se puede 
+asignar una tarea a algún programador para acercarse a una solución.
+
+Finalmente, en esta versión básica la única acción necesaria para llevar a 
+cabo una asignación completa de las tareas a los programadores es asignar una 
+tarea \texttt{?t} no asignada previamente a un programador \texttt{?p} capaz 
+de ejecutarla. A tal efecto, definimos una acción \texttt{realiza} que tiene 
+como parámetros \texttt{(?t - tarea ?p - programador)} y, si se cumple que la 
+tarea \texttt{?t} no se ha asignado todavía y que el programador \texttt{?p} 
+tiene la habilidad suficiente para realizarla, la tarea se le asigna y se 
+marca como servida.
+
+Observamos con esta explicación que algunos de los atributos que definen las 
+tareas y los programadores (funciones en este modelo) no se utilizan. Aún así, 
+estos son necesarios para las siguientes versiones del problema y, 
+manteniéndolos en este modelo, permitimos que la entrada del problema se pueda 
+definir del mismo modo (es decir, una entrada para una versión del problema 
+podría servir para otra versión).
+
 
 

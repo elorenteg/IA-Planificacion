@@ -5,6 +5,12 @@ from random import randint
 import os
 import commands
 import time
+import csv
+
+# fichero con una tabla con NTAREAS, NPROGS, TIEMPO
+fileData = open('datos.csv', 'w')
+csvData = csv.writer(fileData, delimiter='\t')
+
 
 
 version = raw_input("Version del problema [b,1,2,3,4]: ")
@@ -74,12 +80,15 @@ while posible:
     output = commands.getoutput("./Metric-FF/ff -o " + paquete+"/dominio.pddl -f problema.pddl")
     t2 = time.time()
     
-    print "Tiempo: " + str("%.3f" % (t2-t1)) + " s"
+    tiempo = str("%.3f" % (t2-t1))
+    
+    print "Tiempo: " + tiempo + " s"
     
     if "unsolvable" in output: # ya no tiene solucion
         posible = False
     else:
         resultado(output, initTarea, initProgs)
+        csvData.writerow([initTarea, initProgs, tiempo])
     
     initTarea += 1
     initProgs += 2

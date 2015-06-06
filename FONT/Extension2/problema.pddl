@@ -1,7 +1,7 @@
 (define (problem problema)
    (:domain tareas-ext2)
    (:objects t1 t2 t3 - tarea
-             p1 p2 p3 - programador)
+             p1 p2 - programador)
 
     (:init
         (= (dtarea t1) 1) (= (ttarea t1) 1)
@@ -9,8 +9,7 @@
         (= (dtarea t3) 1) (= (ttarea t3) 1)
         
         (= (hprog p1) 1) (= (cprog p1) 1)
-        (= (hprog p2) 1) (= (cprog p2) 1)
-        (= (hprog p3) 1) (= (cprog p3) 1)
+        (= (hprog p2) 1) (= (cprog p2) 2)
         
         (= (ttotal) 0)
     )

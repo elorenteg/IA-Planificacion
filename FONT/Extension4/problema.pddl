@@ -20,7 +20,7 @@
         (forall (?t - tarea) (revisada ?t))
     )
 
-    (:metric minimize (* (ttotal) (ntrabajadores)))
+    (:metric minimize (+ (* 0.5 (ttotal)) (* 0.5 (ntrabajadores))))
 )
 
 

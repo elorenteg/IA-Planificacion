@@ -15,23 +15,14 @@ pl.figure(figsize=(15, 6), dpi=80) # Create a figure of size 8x6 inches, 80 dots
 
 for f in filesData:
     nameFile = f
-    ind = f.find('-')
-    f = f[ind+1:]
-    ind = f.find('-')
-    v = f[:ind]
-    f = f[ind+1:]
-    ind = f.find('-')
-    iniT = f[:ind]
-    f = f[ind+1:]
-    ind = f.find('-')
-    iniP = f[:ind]
-    f = f[ind+1:]
-    ind = f.find('-')
-    incT = f[:ind]
-    f = f[ind+1:]
-    ind = f.find('.')
-    incP = f[:ind]
     
+    f = f.split('.')[0]
+    f = f.split('-')
+    v = f[1]
+    iniT = f[2]
+    iniP = f[3]
+    incT = f[4]
+    incP = f[5]
     print v + " -- " + iniT + " -- " + iniP + " -- " + incT + " -- " + incP
 
     ifile = open(nameFile, "r")

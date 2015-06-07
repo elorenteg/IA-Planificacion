@@ -56,7 +56,7 @@ def nomTarea():
     tarea = tarea.replace(" ","_")
     tarea = re.sub("[^a-zA-Z|^0-9|^_]+", "", tarea) #tarea solo puede tener caracteres a-zA-Z, 0-9, _
     if tarea in LIST_TAREA:
-        return nomProg()
+        return nomTarea()
     return tarea
 
 def create_objects(letra, tipo, max):

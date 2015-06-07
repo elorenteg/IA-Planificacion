@@ -108,6 +108,13 @@ def resultado(output, ntareas, nprogs):
     showSolution(diccREA, "realiza")
     if len(REV) > 0:
         showSolution(diccREV, "revisa")
+
+    print ""
+    ntrabajadores = 0
+    diccUnion = diccREA
+    diccUnion.update(diccREV)
+    for prog in diccUnion.keys(): ntrabajadores += 1
+    print "Núm. trabajadores:", ntrabajadores
     
     ttotal = showTiempo(REA, REV)
     return ttotal
@@ -122,8 +129,11 @@ while posible:
     print "Num Progra: " + str(initProgs)
     os.system("python generator.py " + version + " " + str(initTarea) + " " + str(initProgs))
     
+    if version in ['3','4']: Oflag = " -O"
+    else: Oflag = ""
+
     t1 = time.time()
-    output = commands.getoutput("./Metric-FF/ff -o " + paquete+"/dominio.pddl -f problema.pddl")
+    output = commands.getoutput("./Metric-FF/ff -o " + paquete+"/dominio.pddl -f problema.pddl" + Oflag)
     t2 = time.time()
     
     tiempo = str("%.3f" % (t2-t1))

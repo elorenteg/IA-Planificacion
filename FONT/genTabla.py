@@ -9,7 +9,7 @@ import glob
 version = raw_input("Version del problema [b,1,2,3,4]: ")
 initTarea = raw_input("Numero de tareas: ")
 initProgs = raw_input("Numero de programadores: ")
-filesData = sorted(glob.glob("datos-"+version+"-"+initTarea+"-"+initProgs+"*"))
+filesData = sorted(glob.glob("Tablas/datos-"+version+"-"+initTarea+"-"+initProgs+"*"))
 
 pl.figure(figsize=(15, 6), dpi=80) # Create a figure of size 8x6 inches, 80 dots per inch
 

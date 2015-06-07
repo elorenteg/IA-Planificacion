@@ -17,7 +17,7 @@ incP = int(raw_input("Incremento de programadores: "))
 
 
 # fichero con una tabla con NTAREAS, NPROGS, TIEMPO
-fileData = open("datos-"+version+"-"+str(initTarea)+"-"+str(initProgs)+"-"+str(incT)+"-"+str(incP)+".csv", 'w')
+fileData = open("Tablas/datos-"+version+"-"+str(initTarea)+"-"+str(initProgs)+"-"+str(incT)+"-"+str(incP)+".csv", 'w')
 csvData = csv.writer(fileData, delimiter='\t')
 
 

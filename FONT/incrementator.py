@@ -37,9 +37,47 @@ def cuenta(TP):
     return dicc
 
 def showSolution(diccTP, action):
+    print ""
     print action.capitalize()
     for key, value in diccTP.iteritems():
         print "  " + key + " " + action + " " + str(value) + " tareas"
+        
+def recorta(prob,sfind):
+    ind = prob.find(sfind)
+    dfind = prob[ind:]
+    ind = dfind.find(")")
+    dfind = dfind[ind+2:]
+    ind = dfind.find(")")
+    dfind = dfind[:ind]
+    return dfind
+        
+def showTiempo(REA, REV):
+    prob = open("problema.pddl", "r")
+    prob = prob.read()
+    
+    #print prob
+    ttotal = 0
+    for elem in REA:
+        ind = elem.find(" ")
+        tarea = elem[:ind]
+        prog = elem[ind+1:]
+        
+        dtarea = int(recorta(prob, "dtarea " + tarea + ") "))
+        ttarea = int(recorta(prob, "ttarea " + tarea + ") "))
+        hprog = int(recorta(prob, "hprog " + prog + ") "))
+        cprog = int(recorta(prob, "cprog " + prog + ") "))
+        
+        if dtarea <= hprog:
+            ttotal += ttarea
+        else:
+            ttotal += ttarea + 2
+            
+        if cprog == 1:
+            ttotal += 1
+        else:
+            ttotal += 2
+            
+    return ttotal
     
     
 def resultado(output, ntareas, nprogs):
@@ -64,8 +102,12 @@ def resultado(output, ntareas, nprogs):
     diccREV = cuenta(REV) # numero de tareas que REVISA cada programador. 0 si el programador no esta en el dicc
     
     showSolution(diccREA, "realiza")
-    showSolution(diccREV, "revisa")
-        
+    if len(REV) > 0:
+        showSolution(diccREV, "revisa")
+    
+    ttotal = showTiempo(REA, REV)
+    return ttotal
+    
         
         
 posible = True
@@ -86,9 +128,14 @@ while posible:
     
     if "unsolvable" in output: # ya no tiene solucion
         posible = False
+        print "NO HAY SOLUCION"
     else:
-        resultado(output, initTarea, initProgs)
-        csvData.writerow([initTarea, initProgs, tiempo])
+        ttotal = resultado(output, initTarea, initProgs)
+        csvData.writerow([initTarea, initProgs, tiempo, ttotal])
+        print ""
+        print "Tiempo total: " + str(ttotal) + " h"
+        
+    print "\n"
     
     initTarea += 1
     initProgs += 2

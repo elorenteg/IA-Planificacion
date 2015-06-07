@@ -26,7 +26,17 @@ Inteligencia Artificial - Planificación
 
 Para ejecutar el codigo hay que hacer
 
-* Linux: ./Metric-FF/ff -o ver/dominio.pddl -f ver/problema.pddl
-         ./Metric-FF/ff -O -o ver/dominio.pddl -f ver/problema.pddl (si se quiere optimizar)
+* Linux: ./Metric-FF/ff -o <version>/dominio.pddl -f <version>/problema.pddl
+         ./Metric-FF/ff -O -o <version>/dominio.pddl -f <version>/problema.pddl (si se quiere optimizar)
          
-         ver puede ser cualquiera de las versiones
+         
+Para ejecutar los generadores de problemas:
+
+* generator.py --> Generador de un solo problema
+    python generator.py <version> <ntareas> <nprogs>
+    
+* incrementator.py --> Generador de varios problemas de forma incremental
+    python incrementator.py
+    
+* genTabla.py --> Genera tablas con los datos de incrementator.py
+    python genTabla.py

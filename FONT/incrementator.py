@@ -7,15 +7,19 @@ import commands
 import time
 import csv
 
-# fichero con una tabla con NTAREAS, NPROGS, TIEMPO
-fileData = open('datos.csv', 'w')
-csvData = csv.writer(fileData, delimiter='\t')
-
 
 
 version = raw_input("Version del problema [b,1,2,3,4]: ")
 initTarea = int(raw_input("Numero de tareas: "))
 initProgs = int(raw_input("Numero de programadores: "))
+incT = int(raw_input("Incremento de tareas: "))
+incP = int(raw_input("Incremento de programadores: "))
+
+
+# fichero con una tabla con NTAREAS, NPROGS, TIEMPO
+fileData = open("datos-"+version+"-"+str(initTarea)+"-"+str(initProgs)+"-"+str(incT)+"-"+str(incP)+".csv", 'w')
+csvData = csv.writer(fileData, delimiter='\t')
+
 
 paquete = "Basic"
 if version in ['1','2','3','4']:
@@ -137,8 +141,8 @@ while posible:
         
     print "\n"
     
-    initTarea += 1
-    initProgs += 2
+    initTarea += incT
+    initProgs += incP
         
         
     

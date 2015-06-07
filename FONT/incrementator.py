@@ -129,7 +129,7 @@ while posible:
     print "Num Progra: " + str(initProgs)
     os.system("python generator.py " + version + " " + str(initTarea) + " " + str(initProgs))
     
-    if version in ['3','4']: Oflag = " -O"
+    if version in ['2','3','4']: Oflag = " -O"
     else: Oflag = ""
 
     t1 = time.time()
@@ -140,8 +140,9 @@ while posible:
     
     print "Tiempo: " + tiempo + " s"
     
-    if "unsolvable" in output: # ya no tiene solucion
+    if ("unsolvable" in output) or ("unknown optimization method" in output): # ya no tiene solucion
         posible = False
+        print ""
         print "NO HAY SOLUCION"
     else:
         ttotal = resultado(output, initTarea, initProgs)

@@ -74,13 +74,6 @@ def create_objects(letra, tipo, max):
         
     file.write("- " + tipo + "\n")
     
-    """
-    if (letra == 'p'):
-        print "PROGRAMADORES: " + str(LIST_PROGS)
-    else:
-        print "TAREAS: " + str(LIST_TAREA)
-        """
-    
 def init_tarea(max):
     for i in range(0,int(max)):
         indent(2)

@@ -34,29 +34,41 @@ def indent(n):
     while n > 0:
         file.write('    ')
         n -= 1;
+        
+def nomProg():
+    rand = randint(0,MAX_NOMBRES-1)
+    nomb = lines_nombres[rand].lower()
+    nomb = " ".join(nomb.split())
+    nomb = nomb.replace(" ","_")
+    nomb = re.sub("[^a-zA-Z|^0-9|^_]+", "", nomb) #nomb solo puede tener caracteres a-zA-Z, 0-9, _
+    if nomb in LIST_PROGS:
+        return nomProg()
+    return nomb
+
+def nomTarea():
+    randV = randint(0,MAX_VERBOS-1)
+    randO = randint(0,MAX_OBJETOS-1)
+    verbo = lines_verbos[randV].lower()
+    objeto = lines_objetos[randO].lower()
+    verbo = " ".join(verbo.split())
+    objeto = " ".join(objeto.split())
+    tarea = verbo + " " + objeto
+    tarea = tarea.replace(" ","_")
+    tarea = re.sub("[^a-zA-Z|^0-9|^_]+", "", tarea) #tarea solo puede tener caracteres a-zA-Z, 0-9, _
+    if tarea in LIST_TAREA:
+        return nomProg()
+    return tarea
 
 def create_objects(letra, tipo, max):
     indent(2)
     
     for i in range(1,int(max)+1):
         if letra == 'p':
-            rand = randint(0,MAX_NOMBRES-1)
-            nomb = lines_nombres[rand].lower()
-            nomb = " ".join(nomb.split())
-            nomb = nomb.replace(" ","_")
-            nomb = re.sub("[^a-zA-Z|^0-9|^_]+", "", nomb) #nomb solo puede tener caracteres a-zA-Z, 0-9, _
+            nomb = nomProg()
             file.write(nomb + " ")
             LIST_PROGS.append(nomb)
         else:
-            randV = randint(0,MAX_VERBOS-1)
-            randO = randint(0,MAX_OBJETOS-1)
-            verbo = lines_verbos[randV].lower()
-            objeto = lines_objetos[randO].lower()
-            verbo = " ".join(verbo.split())
-            objeto = " ".join(objeto.split())
-            tarea = verbo + " " + objeto
-            tarea = tarea.replace(" ","_")
-            tarea = re.sub("[^a-zA-Z|^0-9|^_]+", "", tarea) #tarea solo puede tener caracteres a-zA-Z, 0-9, _
+            tarea = nomTarea()
             file.write(tarea + " ")
             LIST_TAREA.append(tarea)
         

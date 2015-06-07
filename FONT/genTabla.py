@@ -7,6 +7,7 @@ import matplotlib.cm as cm
 import numpy as np
 import csv
 import glob
+from pylab import *
 
 version = raw_input("Version del problema [b,1,2,3,4]: ")
 initTarea = raw_input("Numero de tareas: ")
@@ -15,6 +16,7 @@ filesData = sorted(glob.glob("Tablas/datos-"+version+"-"+initTarea+"-"+initProgs
 
 pl.figure(figsize=(15, 10), dpi=80) # Create a figure of size 8x6 inches, 80 dots per inch
 colors = iter(cm.rainbow(np.linspace(0,1,len(filesData)*6)))
+
 
 for f in filesData:
     nameFile = f
@@ -55,46 +57,46 @@ for f in filesData:
     pl.grid(True)
     pl.xlabel('Num. de ejecucion')
     pl.ylabel('Tiempo de ejecucion (s)')
-    pl.title('Tiempo de ejecucion segun incrementamos el tamano')
-    pl.legend(loc='best', fancybox=True)
+    pl.title('Tejec segun incremento')
+    pl.legend(loc='center left', bbox_to_anchor=(1,0.5), fancybox=True)
     pl.subplot(3, 2, 2)
     pl.plot(range(1,len(TTOTA)+1),TTOTA, marker='o', label='inc nt('+str(incT)+') np('+str(incP)+')', color=next(colors))
     pl.grid(True)
     pl.xlabel('Num. de ejecucion')
     pl.ylabel('Tiempo de realizacion (h)')
-    pl.title('Tiempo de realizacion segun incrementamos el tamano')
-    pl.legend(loc='best', fancybox=True)
+    pl.title('Ttotal segun incremento')
+    pl.legend(loc='center left', bbox_to_anchor=(1,0.5), fancybox=True)
     pl.subplot(3, 2, 3)
     pl.plot(NTARE,TIEMP, marker='o', label='inc nt('+str(incT)+') np('+str(incP)+')', color=next(colors))
     pl.grid(True)
     pl.xlabel('Num. de tareas')
     pl.ylabel('Tiempo de ejecucion (s)')
-    pl.title('Tiempo de realizacion segun el numero de tareas')
-    pl.legend(loc='best', fancybox=True)
+    pl.title('Tejec segun ntareas')
+    pl.legend(loc='center left', bbox_to_anchor=(1,0.5), fancybox=True)
     pl.subplot(3, 2, 4)
     pl.plot(NTARE,TTOTA, marker='o', label='inc nt('+str(incT)+') np('+str(incP)+')', color=next(colors))
     pl.grid(True)
     pl.xlabel('Num. de tareas')
     pl.ylabel('Tiempo de realizacion (h)')
-    pl.title('Tiempo de realizacion segun el numero de tareas')
-    pl.legend(loc='best', fancybox=True)
+    pl.title('Ttotal segun ntareas')
+    pl.legend(loc='center left', bbox_to_anchor=(1,0.5), fancybox=True)
     pl.subplot(3, 2, 5)
     pl.plot(NPROG,TIEMP, marker='o', label='inc nt('+str(incT)+') np('+str(incP)+')', color=next(colors))
     pl.grid(True)
     pl.xlabel('Num. de programadores')
     pl.ylabel('Tiempo de ejecucion (s)')
-    pl.title('Tiempo de ejecucion segun el numero de programadores')
-    pl.legend(loc='best', fancybox=True)
+    pl.title('Tejec segun nprogs')
+    pl.legend(loc='center left', bbox_to_anchor=(1,0.5), fancybox=True)
     pl.subplot(3, 2, 6)
     pl.plot(NPROG,TTOTA, marker='o', label='inc nt('+str(incT)+') np('+str(incP)+')', color=next(colors))
     pl.grid(True)
     pl.xlabel('Num. de programadores')
     pl.ylabel('Tiempo de realizacion (h)')
-    pl.title('Tiempo de realizacion segun el numero de programadores')
-    pl.legend(loc='best', fancybox=True)
+    pl.title('Ttotal segun nprogs')
+    pl.legend(loc='center left', bbox_to_anchor=(1,0.5), fancybox=True)
     
     pl.tight_layout()
 
-
+subplots_adjust(right=0.8, top=0.9, wspace=0.8, hspace=0.8)
 pl.savefig("graph.png", dpi=72) # Save figure using 72 dots per inch
 pl.show() # Show result on screen

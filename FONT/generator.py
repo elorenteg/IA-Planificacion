@@ -115,7 +115,7 @@ def create_minim():
     file.write("(:metric minimize\n")
     indent(2)
     if version == '4':
-        file.write("(* (ttotal) (ntrabajadores))")
+        file.write("(+ (* 0.2 (ttotal)) (* 0.8 (ntrabajadores)))")
     else:
         file.write("(ttotal)")
     file.write("\n")

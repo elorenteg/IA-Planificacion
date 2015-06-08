@@ -1,27 +1,28 @@
 (define (problem problema)
-    (:domain tareas-ext3)
+    (:domain tareas-ext4)
     (:objects 
-        manage_gods handle_epilepsy involve_epilepsy further_stategovt enhance_tickets clarify_hubblespacetelescope tend_liveradio cause_stockcertificates update_dinosaurs enforce_english - tarea
-        lisa_roberts - programador
+        license_maillists defend_moon formulate_movies influence_montecristogoldmine present_investing uncover_findpeople purchase_lotto accommodate_astronomy translate_kidssites refine_alzheimers - tarea
+        marilyn_cunningham - programador
     )
     (:init
-        (= (dtarea manage_gods) 3) (= (ttarea manage_gods) 6) 
-        (= (dtarea handle_epilepsy) 2) (= (ttarea handle_epilepsy) 1) 
-        (= (dtarea involve_epilepsy) 2) (= (ttarea involve_epilepsy) 9) 
-        (= (dtarea further_stategovt) 3) (= (ttarea further_stategovt) 3) 
-        (= (dtarea enhance_tickets) 2) (= (ttarea enhance_tickets) 9) 
-        (= (dtarea clarify_hubblespacetelescope) 3) (= (ttarea clarify_hubblespacetelescope) 4) 
-        (= (dtarea tend_liveradio) 1) (= (ttarea tend_liveradio) 4) 
-        (= (dtarea cause_stockcertificates) 3) (= (ttarea cause_stockcertificates) 9) 
-        (= (dtarea update_dinosaurs) 2) (= (ttarea update_dinosaurs) 5) 
-        (= (dtarea enforce_english) 1) (= (ttarea enforce_english) 7) 
-        (= (hprog lisa_roberts) 3) (= (cprog lisa_roberts) 1) (= (nprog lisa_roberts) 0) 
+        (= (dtarea license_maillists) 2) (= (ttarea license_maillists) 9) 
+        (= (dtarea defend_moon) 1) (= (ttarea defend_moon) 2) 
+        (= (dtarea formulate_movies) 2) (= (ttarea formulate_movies) 2) 
+        (= (dtarea influence_montecristogoldmine) 2) (= (ttarea influence_montecristogoldmine) 7) 
+        (= (dtarea present_investing) 3) (= (ttarea present_investing) 6) 
+        (= (dtarea uncover_findpeople) 1) (= (ttarea uncover_findpeople) 4) 
+        (= (dtarea purchase_lotto) 2) (= (ttarea purchase_lotto) 10) 
+        (= (dtarea accommodate_astronomy) 2) (= (ttarea accommodate_astronomy) 3) 
+        (= (dtarea translate_kidssites) 1) (= (ttarea translate_kidssites) 5) 
+        (= (dtarea refine_alzheimers) 1) (= (ttarea refine_alzheimers) 5) 
+        (= (hprog marilyn_cunningham) 2) (= (cprog marilyn_cunningham) 1) (= (nprog marilyn_cunningham) 0) 
         (= (ttotal) 0) 
+        (= (ntrabajadores) 0) 
     )
     (:goal
         (forall (?t - tarea) (revisada ?t))
     )
     (:metric minimize
-        (ttotal)
+        (+ (* 0.2 (ttotal)) (* 0.8 (ntrabajadores)))
     )
 )

@@ -4,9 +4,9 @@
              p1 p2 - programador)
 
     (:init
-        (= (dtarea t1) 2) (= (ttarea t1) 1)
-        (= (dtarea t2) 2) (= (ttarea t2) 1)
-        (= (dtarea t3) 2) (= (ttarea t3) 1)
+        (= (dtarea t1) 2) (= (ttarea t1) 5)
+        (= (dtarea t2) 2) (= (ttarea t2) 5)
+        (= (dtarea t3) 2) (= (ttarea t3) 5)
         
         (= (hprog p1) 1) (= (cprog p1) 1)
         (= (hprog p2) 2) (= (cprog p2) 1)

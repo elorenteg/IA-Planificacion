@@ -5,7 +5,6 @@
     )
     
     (:predicates
-        (servida ?t - tarea)
         (servida_por ?t - tarea ?p - programador)
 
         (por_revisar_1 ?t - tarea)
@@ -25,9 +24,9 @@
     
     (:action realiza
         :parameters (?t - tarea ?p - programador)
-        :precondition (and (not (servida ?t))
+        :precondition (and (not (or (por_revisar_1 ?t) (por_revisar_2 ?t)))
                            (<= (dtarea ?t) (+ (hprog ?p) 1)))
-        :effect (and (servida_por ?t ?p) (servida ?t)
+        :effect (and (servida_por ?t ?p)
                      (increase (ttotal) (ttarea ?t))
                      (when (= (dtarea ?t) (+ (hprog ?p) 1)) (increase (ttotal) 2))
                      (when (= (cprog ?p) 1) (por_revisar_1 ?t))

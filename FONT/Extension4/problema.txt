@@ -37,10 +37,10 @@ step    0: REALIZA T3 P2
      
 
 time spent:    0.00 seconds instantiating 15 easy, 30 hard action templates
-               0.00 seconds reachability analysis, yielding 52 facts and 45 actions
-               0.00 seconds creating final representation with 52 relevant facts, 12 relevant fluents
+               0.00 seconds reachability analysis, yielding 58 facts and 45 actions
+               0.00 seconds creating final representation with 58 relevant facts, 12 relevant fluents
                0.00 seconds computing LNF
                0.00 seconds building connectivity graph
-               0.00 seconds searching, evaluating 105 states, to a max depth of 0
+               0.00 seconds searching, evaluating 62 states, to a max depth of 0
                0.00 seconds total time
 

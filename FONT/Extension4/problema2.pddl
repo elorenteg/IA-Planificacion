@@ -1,4 +1,4 @@
-(define (problem problema)
+(define (problem optimoNtrabajadores-5-8)
    (:domain tareas-ext4)
    (:objects t1 t2 t3 t4 t5 - tarea
              p1 p2 p3 p4 p5 p6 p7 p8 - programador)

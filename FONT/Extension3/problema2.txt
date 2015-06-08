@@ -1,0 +1,114 @@
+
+ff: parsing domain file
+domain 'TAREAS-EXT3' defined
+ ... done.
+ff: parsing problem file
+problem 'DIFICULTADMAXIMA-20-20' defined
+ ... done.
+
+
+metric established (normalized to minimize): ((1.00*[RF0](TTOTAL)) - () + 0.00)
+
+task contains conditional effects. turning off state domination.
+
+
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is ((1.00*[RF0](TTOTAL)) - () + 0.00)
+
+advancing to distance:   40
+                         39
+                         38
+                         37
+                         36
+                         35
+                         34
+                         33
+                         32
+                         31
+                         30
+                         29
+                         28
+                         27
+                         26
+                         25
+                         24
+                         23
+                         22
+                         21
+                         20
+                         19
+                         18
+                         17
+                         16
+                         15
+                         14
+                         13
+                         12
+                         11
+                         10
+                          9
+                          8
+                          7
+                          6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: REALIZA T4 P1
+        1: REALIZA T1 P1
+        2: REALIZA T6 P2
+        3: REALIZA T14 P2
+        4: REALIZA T17 P3
+        5: REALIZA T2 P3
+        6: REALIZA T11 P5
+        7: REALIZA T13 P5
+        8: REALIZA T20 P7
+        9: REALIZA T7 P7
+       10: REALIZA T8 P12
+       11: REALIZA T5 P12
+       12: REALIZA T19 P13
+       13: REALIZA T10 P13
+       14: REALIZA T15 P15
+       15: REALIZA T3 P15
+       16: REALIZA T9 P16
+       17: REALIZA T12 P16
+       18: REALIZA T16 P17
+       19: REALIZA T18 P17
+       20: REVISA T1 P4
+       21: REVISA T2 P4
+       22: REVISA T3 P6
+       23: REVISA T4 P6
+       24: REVISA T5 P8
+       25: REVISA T6 P8
+       26: REVISA T7 P9
+       27: REVISA T8 P9
+       28: REVISA T9 P10
+       29: REVISA T10 P10
+       30: REVISA T11 P11
+       31: REVISA T12 P11
+       32: REVISA T13 P14
+       33: REVISA T14 P14
+       34: REVISA T15 P18
+       35: REVISA T16 P18
+       36: REVISA T17 P19
+       37: REVISA T18 P19
+       38: REVISA T19 P20
+       39: REVISA T20 P20
+     
+
+time spent:    0.01 seconds instantiating 400 easy, 800 hard action templates
+               0.00 seconds reachability analysis, yielding 880 facts and 1200 actions
+               0.00 seconds creating final representation with 880 relevant facts, 41 relevant fluents
+               0.05 seconds computing LNF
+               0.01 seconds building connectivity graph
+               9.90 seconds searching, evaluating 12491 states, to a max depth of 0
+               9.97 seconds total time
+

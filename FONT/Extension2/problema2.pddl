@@ -1,4 +1,4 @@
-(define (problem problema)
+(define (problem optimoSegunHabilidad-3-2)
    (:domain tareas-ext2)
    (:objects t1 t2 t3 - tarea
              p1 p2 - programador)
@@ -9,7 +9,7 @@
         (= (dtarea t3) 2) (= (ttarea t3) 5)
         
         (= (hprog p1) 1) (= (cprog p1) 1)
-        (= (hprog p2) 1) (= (cprog p2) 1)
+        (= (hprog p2) 2) (= (cprog p2) 1)
         
         (= (ttotal) 0)
     )

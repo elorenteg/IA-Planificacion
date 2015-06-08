@@ -3,5 +3,43 @@
 
 %%% TODO
 
+El primer juego de pruebas está compuesto por tres tareas y cinco 
+programadores, con una selección de parámetros que da lugar a diferentes 
+soluciones según se optimice sólo el tiempo total o sólo el número de 
+programadores que han realizado/revisado alguna tarea. 
+
+Por lo tanto, dado que esta extensión optimiza ambos criterios, podremos 
+observar si logra obtener una solución ``intermedia'', que minimice tanto el 
+tiempo total como el número de programadores.
 
 
+%%% TODO: insertar salida?
+
+
+Si optimizáramos sólo el tiempo, obtendríamos una planificación que tarda 21 
+horas e involucra a 4 programadores; si, por el contrario, optimizáramos sólo 
+el número de trabajadores, obtendríamos una planificación de 25 horas y 3 
+programadores. Tal como se puede observar en la salida del programa, si 
+minimizamos los dos criterios por igual (50\% y 50\%) conseguimos una solución 
+con una duración de 21 horas (mejor tiempo) y 3 programadores involucrados 
+(mejor número de trabajadores).
+
+
+
+El segundo juego de pruebas pretende tratar el caso en que la ponderación de 
+los dos criterios no sea la misma. Consta de cinco tareas y ocho 
+programadores, de nuevo con parámetros seleccionados cuidadosamente para que se
+obtengan diferentes soluciones cuando se optimizan los criterios por separado.
+
+Optimizando los dos criterios equitativamente (50\% y 50\%) obtenemos una 
+planificación con un tiempo total de 37 horas y 6 programadores, pero sabemos 
+que esta solución no ha conseguido el número mínimo de programadores, que 
+debería de ser 5 (uno para cada tarea y revisión, siempre que se cumplan los 
+requisitos de habilidad -como es nuestro caso).
+
+Hay que tener en cuenta que los dos criterios están expresados en unidades 
+diferentes, pero como que no disponemos de la información para hacer una 
+conversión de unidades ni el planificador permite optimizar expresiones 
+lineares, aproximamos que el número de programadores debería de tener un peso 
+del 80\%, y el tiempo total un 20\%. De esta manera, podemos obtener una 
+planificación que tarda 37 horas y que sólo requiere a 5 programadores.

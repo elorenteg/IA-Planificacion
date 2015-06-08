@@ -1,0 +1,54 @@
+
+ff: parsing domain file
+domain 'TAREAS-EXT4' defined
+ ... done.
+ff: parsing problem file
+problem 'OPTIMONTRABAJADORES-5-8' defined
+ ... done.
+
+
+metric established (normalized to minimize): ((0.20*[RF0](TTOTAL)0.80*[RF1](NTRABAJADORES)) - () + 0.00)
+
+task contains conditional effects. turning off state domination.
+
+
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is ((0.20*[RF0](TTOTAL)0.80*[RF1](NTRABAJADORES)) - () + 0.00)
+
+advancing to distance:   10
+                          9
+                          8
+                          7
+                          6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: REALIZA T3 P8
+        1: REALIZA T2 P8
+        2: REALIZA T1 P1
+        3: REALIZA T4 P1
+        4: REVISA T1 P2
+        5: REVISA T2 P2
+        6: REVISA T3 P3
+        7: REALIZA T5 P3
+        8: REVISA T4 P4
+        9: REVISA T5 P4
+     
+
+time spent:    0.00 seconds instantiating 40 easy, 80 hard action templates
+               0.00 seconds reachability analysis, yielding 116 facts and 120 actions
+               0.00 seconds creating final representation with 116 relevant facts, 18 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.03 seconds searching, evaluating 431 states, to a max depth of 0
+               0.03 seconds total time
+

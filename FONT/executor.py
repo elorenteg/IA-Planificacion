@@ -133,6 +133,12 @@ if version in ['2','3','4']:
     Oflag = " -O"
 else:
     Oflag = ""
+    
+if (version in ['3','4']) and (ntareas > nprogs):
+    print ""
+    print "NO HAY SOLUCION -- ntareas > nprogs"
+    sys.exit()
+        
 
 t1 = time.time()
 output = commands.getoutput("./Metric-FF/ff" + Oflag + " -o " + paquete+"/dominio.pddl -f " + ifile)

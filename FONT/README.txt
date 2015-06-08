@@ -25,7 +25,7 @@ Inteligencia Artificial - Planificación
         * genTablas.py                    --> genera tablas con los datos de incrementator.py
         * graph-*.png                     --> graficas para ver el tejec y ttotal
     * Generator
-        * problema.pddl                   --> problema generador por generator.py
+        * problema.pddl                   --> problema generado por generator.py
     * generator.py                        --> generador de un solo problema
     * executor.py                         --> ejecuta un problema
     * incrementator.py                    --> generador de varios problemas de forma incremental

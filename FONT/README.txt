@@ -9,19 +9,25 @@ Inteligencia Artificial - Planificación
     * Basic
         * dominio.pddl                    --> dominio del problema para cada versión
         * problema.pddl / problema2.pddl  --> juegos de prueba no triviales para cada versión
+        * problema.txt  / problema2.txt   --> salidas de los juegos de prueba para cada versión
     * Extension1
         * dominio.pddl
         * problema.pddl / problema2.pddl
+        * problema.txt  / problema2.txt
     * Extension2
         * dominio.pddl
         * problema.pddl / problema2.pddl
+        * problema.txt  / problema2.txt
     * Extension3
         * dominio.pddl
         * problema.pddl / problema2.pddl
+        * problema.txt  / problema2.txt
     * Extension4
         * dominio.pddl
         * problema.pddl / problema2.pddl
+        * problema.txt  / problema2.txt
     * Tablas
+        * datos-*.csv                     --> tablas de recogidas de datos cuyas columnas son [ntareas, nprogs, tejec, ttotal]
         * genTablas.py                    --> genera tablas con los datos de incrementator.py
         * graph-*.png                     --> graficas para ver el tejec y ttotal
     * Generator

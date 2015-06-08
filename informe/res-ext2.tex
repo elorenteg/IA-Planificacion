@@ -1,6 +1,24 @@
 
 \subsection{Segunda extensión} \label{sec:res-ext2}
 
+En esta segunda extensión ya se impone un criterio de optimización. Esto 
+permite explorar diversos casos construídos expresamente para estudiar si 
+el planificador es capaz de encontrar el óptimo o, en caso contrario, cuán 
+lejos se encuentra. 
+
+Como no hay ninguna limitación en el número de tareas asignadas a cada 
+programador, es fácil darse cuenta de que el óptimo de todos los problemas se 
+obtiene cuando las tareas se asignan a los programadores con nivel de 
+habilidad mayor o igual que las tareas, si los hay, y de entre estos a los 
+programadores de primera calidad cuando sea posible (puesto que el incremento 
+del tiempo debido a la habilidad del programador es de dos horas, mientras 
+que el incremento del tiempo de revisión debido a la calidad del programador 
+es solo de una hora). Esta observación nos permite calcular el óptimo 
+``a mano'' en los casos de prueba propuestos y compararlo con la solución 
+ofrecida por el planificador.
+
+
+
 %%% TODO
 
 

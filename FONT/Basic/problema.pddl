@@ -1,4 +1,4 @@
-(define (problem problema)
+(define (problem unaAsignacionFija-3-2)
    (:domain tareas-basic)
    (:objects t1 t2 t3 - tarea
              p1 p2 - programador)

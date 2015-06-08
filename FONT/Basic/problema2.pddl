@@ -1,4 +1,4 @@
-(define (problem problema)
+(define (problem habilidadInsuficiente-3-1)
    (:domain tareas-basic)
    (:objects t1 t2 t3 - tarea
              p1 - programador)

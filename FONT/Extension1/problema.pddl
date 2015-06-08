@@ -1,4 +1,4 @@
-(define (problem problema)
+(define (problem progsInsuficientes-3-2)
    (:domain tareas-ext1)
    (:objects t1 t2 t3 - tarea
              p1 p2 - programador)

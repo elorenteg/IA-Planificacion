@@ -1,4 +1,4 @@
-(define (problem problema)
+(define (problem asignacionUnica-4-4)
    (:domain tareas-ext3)
    (:objects t1 t2 t3 t4 - tarea
              p1 p2 p3 p4 - programador)

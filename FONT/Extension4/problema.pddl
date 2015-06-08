@@ -1,4 +1,4 @@
-(define (problem problema)
+(define (problem optimoEquitativo-3-5)
    (:domain tareas-ext4)
    (:objects t1 t2 t3 - tarea
              p1 p2 p3 p4 p5 - programador)

@@ -1,4 +1,4 @@
-Inteligencia Artificial - Planificación
+Inteligencia Artificial - PlanificaciÃ³n
 
 * DOCS:
    * informe.pdf
@@ -7,8 +7,8 @@ Inteligencia Artificial - Planificación
     * Metric-FF
         * ff
     * Basic
-        * dominio.pddl                    --> dominio del problema para cada versión
-        * problema.pddl / problema2.pddl  --> juegos de prueba no triviales para cada versión
+        * dominio.pddl                    --> dominio del problema para cada versiÃ³n
+        * problema.pddl / problema2.pddl  --> juegos de prueba no triviales para cada versiÃ³n
     * Extension1
         * dominio.pddl
         * problema.pddl / problema2.pddl
@@ -21,6 +21,14 @@ Inteligencia Artificial - Planificación
     * Extension4
         * dominio.pddl
         * problema.pddl / problema2.pddl
+    * Tablas
+        * genTablas.py                    --> genera tablas con los datos de incrementator.py
+        * graph-*.png                     --> graficas para ver el tejec y ttotal
+    * Generator
+        * problema.pddl                   --> problema generador por generator.py
+    * generator.py                        --> generador de un solo problema
+    * executor.py                         --> ejecuta un problema
+    * incrementator.py                    --> generador de varios problemas de forma incremental
         
         
 
@@ -32,11 +40,10 @@ Para ejecutar el codigo hay que hacer
          
 Para ejecutar los generadores de problemas:
 
-* generator.py --> Generador de un solo problema
     python generator.py <version> <ntareas> <nprogs>
     
-* incrementator.py --> Generador de varios problemas de forma incremental
+    python executor.py <problema>
+    
     python incrementator.py
     
-* genTabla.py --> Genera tablas con los datos de incrementator.py
     python genTabla.py

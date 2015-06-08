@@ -42,7 +42,7 @@ Para ejecutar los generadores de problemas:
 
     python generator.py <version> <ntareas> <nprogs>
     
-    python executor.py <problema>
+    python executor.py <problema> [--asig] --> El flag --asig muestra la asignación dada por el FF
     
     python incrementator.py
     

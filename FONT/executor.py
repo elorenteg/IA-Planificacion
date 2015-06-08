@@ -7,9 +7,10 @@ import commands
 import time
 import csv
 import sys
+import os.path
 
-if len(sys.argv)-1 != 1:
-    print 'python executor.py <file>'
+if (len(sys.argv)-1 != 1) and (len(sys.argv)-1 != 2):
+    print 'python executor.py <file> [--asig]'
     sys.exit()
     
 ifile = sys.argv[1]
@@ -125,6 +126,26 @@ def resultado(output, ntareas, nprogs):
     ttotal = showTiempo(REA, REV)
     return ttotal
 
+def showAsig(output):
+    ini = output.find("step")
+    fin = output.find("time spent")
+    lista = output[ini:fin-8]
+    lista = lista.split('\n')
+    
+    L = []
+    for elem in lista:
+        ind = elem.find("REALIZA")
+        if ind != -1:
+            L.append(elem[ind:].lower())
+        else:
+            ind = elem.find("REVISA")
+            L.append(elem[ind:].lower())
+    
+    print ""
+    print "Asignaciones"
+    for acc in L:
+        print "  " + acc
+
 
 print "Num Tareas: " + str(ntareas)
 print "Num Progra: " + str(nprogs)
@@ -156,6 +177,9 @@ else:
     ttotal = resultado(output, ntareas, nprogs)
     print ""
     print "Tiempo total: " + str(ttotal) + " h"
+    
+    if len(sys.argv)-1 == 2 and sys.argv[2] == '--asig':
+        showAsig(output)
     
 print "\n"
 

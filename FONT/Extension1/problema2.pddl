@@ -9,7 +9,7 @@
         (= (dtarea t3) 3) (= (ttarea t3) 1)
         
         (= (hprog p1) 2) (= (cprog p1) 1)
-        (= (hprog p2) 1) (= (cprog p2) 1)
+        (= (hprog p2) 2) (= (cprog p2) 1)
     )
 
     (:goal

@@ -1,7 +1,11 @@
 
 \subsection{Cuarta extensión} \label{sec:res-ext4}
 
-%%% TODO
+En esta versión del problema, la función a optimizar se cambia para intentar 
+minimizar el número de personas empleadas en el proyecto a la vez que el 
+tiempo total de desarrollo. En estas pruebas, por lo tanto, investigamos el 
+efecto del criterio de optimización en las soluciones y evaluamos algunas 
+versiones ligeramente distintas.
 
 El primer juego de pruebas está compuesto por tres tareas y cinco 
 programadores, con una selección de parámetros que da lugar a diferentes 
@@ -11,10 +15,6 @@ programadores que han realizado/revisado alguna tarea.
 Por lo tanto, dado que esta extensión optimiza ambos criterios, podremos 
 observar si logra obtener una solución ``intermedia'', que minimice tanto el 
 tiempo total como el número de programadores.
-
-
-%%% TODO: insertar salida?
-
 
 Si optimizáramos sólo el tiempo, obtendríamos una planificación que tarda 21 
 horas e involucra a 4 programadores; si, por el contrario, optimizáramos sólo 
@@ -35,11 +35,17 @@ Optimizando los dos criterios equitativamente (50\% y 50\%) obtenemos una
 planificación con un tiempo total de 37 horas y 6 programadores, pero sabemos 
 que esta solución no ha conseguido el número mínimo de programadores, que 
 debería de ser 5 (uno para cada tarea y revisión, siempre que se cumplan los 
-requisitos de habilidad -como es nuestro caso).
+requisitos de habilidad ---como es nuestro caso).
 
 Hay que tener en cuenta que los dos criterios están expresados en unidades 
-diferentes, pero como que no disponemos de la información para hacer una 
+diferentes, pero como no disponemos de la información para hacer una 
 conversión de unidades ni el planificador permite optimizar expresiones 
-lineares, aproximamos que el número de programadores debería de tener un peso 
+lineales, aproximamos que el número de programadores debería de tener un peso 
 del 80\%, y el tiempo total un 20\%. De esta manera, podemos obtener una 
 planificación que tarda 37 horas y que sólo requiere a 5 programadores.
+
+En conclusión, con estos experimentos determinamos que la ponderación usada 
+puede tener un impacto en la solución obtenida y, en un caso real, debería 
+ajustarse a las necesidades del problema.
+
+

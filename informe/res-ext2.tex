@@ -15,10 +15,24 @@ del tiempo debido a la habilidad del programador es de dos horas, mientras
 que el incremento del tiempo de revisión debido a la calidad del programador 
 es solo de una hora). Esta observación nos permite calcular el óptimo 
 ``a mano'' en los casos de prueba propuestos y compararlo con la solución 
-ofrecida por el planificador.
+ofrecida por el planificador. De este modo, construimos dos juegos de 
+pruebas para comprobar el efecto de la calidad y la habilidad de los 
+programadores en la solución.
 
+En el primero de ellos, se consideran tres tareas idénticas entre sí y dos 
+programadores con la misma habilidad que pueden realizarlas, pero uno de 
+ellos es de primera calidad y el otro no. En este caso, como era de esperar, 
+la solución óptima consiste en asignar todas las tareas al programador de 
+mayor calidad y dejar las tareas de revisión para el otro programador. Esta 
+es precisamente la solución encontrada por el planificador.
 
+En el segundo juego de pruebas, en cambio, se utilizan dos programadores con 
+la misma calidad pero distinta habilidad: uno de ellos requiere de dos horas 
+addicionales para realizar las tareas, mientras que el otro puede realizarlas 
+en el tiempo previsto. En este caso, pues, la solución óptima consiste en 
+asignar todas las tareas al programador de mayor habilidad y dejar las 
+revisiones para el otro programador. Otra vez, el planificador es capaz de 
+encontrar la solución óptima.
 
-%%% TODO
 
 

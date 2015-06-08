@@ -14,7 +14,7 @@ if len(sys.argv)-1 != 3:
 version = sys.argv[1]
 ntareas = sys.argv[2]
 nprogs = sys.argv[3]
-file = open("problema.pddl", "w")
+file = open("Generator/problema.pddl", "w")
 
 file_nombres = open('Generator/nombres.csv', "r")
 file_verbos = open('Generator/verbos.csv', "r")

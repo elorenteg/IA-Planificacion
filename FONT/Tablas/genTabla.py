@@ -12,9 +12,10 @@ from pylab import *
 version = raw_input("Version del problema [b,1,2,3,4]: ")
 initTarea = raw_input("Numero de tareas: ")
 initProgs = raw_input("Numero de programadores: ")
-filesData = sorted(glob.glob("Tablas/datos-"+version+"-"+initTarea+"-"+initProgs+"*"))
+filesData = sorted(glob.glob("datos-"+version+"-"+initTarea+"-"+initProgs+"*"))
 
-pl.figure(figsize=(15, 10), dpi=80) # Create a figure of size 8x6 inches, 80 dots per inch
+if len(filesData) > 0:
+    pl.figure(figsize=(15, 10), dpi=80) # Create a figure of size 8x6 inches, 80 dots per inch
 colors = iter(cm.rainbow(np.linspace(0,1,len(filesData)*6)))
 
 
@@ -97,6 +98,9 @@ for f in filesData:
     
     pl.tight_layout()
 
-subplots_adjust(right=0.8, top=0.9, wspace=0.8, hspace=0.8)
-pl.savefig("graph.png", dpi=72) # Save figure using 72 dots per inch
-pl.show() # Show result on screen
+if len(filesData) > 0:
+    subplots_adjust(right=0.8, top=0.9, wspace=0.8, hspace=0.8)
+    pl.savefig("graph-"+version+"-"+initTarea+"-"+initProgs+".png", dpi=72) # Save figure using 72 dots per inch
+    pl.show() # Show result on screen
+else:
+    print "No se pueden generar tablas de: version("+version+") tareas("+initTarea+") progs("+initProgs+")"

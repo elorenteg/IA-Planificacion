@@ -1,0 +1,50 @@
+
+ff: parsing domain file
+domain 'TAREAS-EXT3' defined
+ ... done.
+ff: parsing problem file
+problem 'ASIGNACIONUNICA-4-4' defined
+ ... done.
+
+
+metric established (normalized to minimize): ((1.00*[RF0](TTOTAL)) - () + 0.00)
+
+task contains conditional effects. turning off state domination.
+
+
+
+checking for cyclic := effects --- OK.
+
+ff: search configuration is  best-first on 1*g(s) + 5*h(s) where
+    metric is ((1.00*[RF0](TTOTAL)) - () + 0.00)
+
+advancing to distance:    8
+                          7
+                          6
+                          5
+                          4
+                          3
+                          2
+                          1
+                          0
+
+ff: found legal plan as follows
+
+step    0: REALIZA T4 P1
+        1: REALIZA T3 P1
+        2: REALIZA T2 P4
+        3: REALIZA T1 P4
+        4: REVISA T1 P2
+        5: REVISA T2 P2
+        6: REVISA T3 P3
+        7: REVISA T4 P3
+     
+
+time spent:    0.00 seconds instantiating 16 easy, 24 hard action templates
+               0.00 seconds reachability analysis, yielding 48 facts and 36 actions
+               0.00 seconds creating final representation with 48 relevant facts, 9 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               0.00 seconds searching, evaluating 81 states, to a max depth of 0
+               0.00 seconds total time
+

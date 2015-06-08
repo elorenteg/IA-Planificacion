@@ -104,11 +104,11 @@ step    0: REALIZA T4 P1
        39: REVISA T20 P20
      
 
-time spent:    0.01 seconds instantiating 400 easy, 800 hard action templates
-               0.00 seconds reachability analysis, yielding 880 facts and 1200 actions
-               0.00 seconds creating final representation with 880 relevant facts, 41 relevant fluents
-               0.05 seconds computing LNF
-               0.01 seconds building connectivity graph
-               9.90 seconds searching, evaluating 12491 states, to a max depth of 0
-               9.97 seconds total time
+time spent:    0.00 seconds instantiating 400 easy, 800 hard action templates
+               0.00 seconds reachability analysis, yielding 920 facts and 1200 actions
+               0.01 seconds creating final representation with 920 relevant facts, 41 relevant fluents
+               0.00 seconds computing LNF
+               0.00 seconds building connectivity graph
+               1.46 seconds searching, evaluating 7676 states, to a max depth of 0
+               1.47 seconds total time
 

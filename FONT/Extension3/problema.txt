@@ -41,10 +41,10 @@ step    0: REALIZA T4 P1
      
 
 time spent:    0.00 seconds instantiating 16 easy, 24 hard action templates
-               0.00 seconds reachability analysis, yielding 48 facts and 36 actions
-               0.00 seconds creating final representation with 48 relevant facts, 9 relevant fluents
+               0.00 seconds reachability analysis, yielding 56 facts and 36 actions
+               0.00 seconds creating final representation with 56 relevant facts, 9 relevant fluents
                0.00 seconds computing LNF
                0.00 seconds building connectivity graph
-               0.00 seconds searching, evaluating 81 states, to a max depth of 0
+               0.00 seconds searching, evaluating 52 states, to a max depth of 0
                0.00 seconds total time
 

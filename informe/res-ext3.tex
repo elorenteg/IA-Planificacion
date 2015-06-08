@@ -1,6 +1,44 @@
 
 \subsection{Tercera extensión} \label{sec:res-ext3}
 
-%%% TODO
+En esta versión del problema se limita a dos la cantidad de tareas que un 
+programador puede tener a su cargo. Se trata, por lo tanto, de una versión 
+mucho más restrictiva del problema que requiere más programadores (por lo 
+menos, tantos como tareas). 
+
+En el primer juego de pruebas, se consideran cuatro tareas y cuatro 
+programadores. Concretamente, hay una tarea de cada nivel de dificultad 
+excepto del nivel máximo, que hay dos. En cuanto a los programadores, hay 
+dos programadores de primera calidad, uno con nivel de habilidad 3 y otro 
+con nivel de habilidad 1, y dos programadores de segunda calidad, con niveles 
+de habilidad 1 y 2. Por lo tanto, la solución óptima se obtiene cuando se 
+asignan las dos tareas de máxima dificultad al programador de mayor 
+habilidad, sus revisiones al único otro programador con habilidad suficiente,
+las otras tareas al programador de habilidad 1 y categoría 1 y las revisiones 
+de estas al último programador. Esta es, precisamente, la solución que halla 
+el planificador automático.
+
+En el segundo juego de pruebas se aumenta el tamaño y se valora el efecto de 
+la limitación del número de tareas a programadores. A tal efecto, construimos 
+un juego de pruebas con veinte tareas de dificultad máxima y diez 
+programadores de habilidad máxima y diez más de habilidad media. Este juego 
+de pruebas lo resolvemos según la segunda extensión y esta tercera extensión 
+y comparamos los resultados obtenidos. Con la segunda extensión del problema, 
+el planificador encuentra una solución en la que asigna todas las tareas a un 
+mismo programador y todas las tareas de revisión a otro programador y que 
+conlleva un tiempo total de desarrollo de 143 horas (se trata de una solución 
+óptima). La solución obtenida con la tercera extensión del problema, por su 
+parte, requiere la colaboración de los 20 programadores y resulta en un 
+tiempo total de desarrollo de 163 horas. Esta diferencia se explica en parte 
+por las tareas que han tenido que ser realizadas por programadores de calidad 
+inferior (sin embargo, la solución hallada no es óptima). 
+
+Concluimos, pues, que la limitación del número de tareas por programador 
+aumenta la cantidad de horas necesarias, pero la diferencia no es muy 
+significativa si el número de programadores es suficiente porque las
+penalizaciones (debidas a la poca habilidad o a la baja calidad de los 
+programadores) modeladas tienen poco peso en comparación con la duración de 
+las tareas.
+
 
 
